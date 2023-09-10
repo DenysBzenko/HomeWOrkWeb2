@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="ZMI.html">Якщо хочете почитати про 10.09.2023</a></li>
+          <li><a href="element.html">Only text</a></li>
+        </ul>
+     </nav>
+
+<p style = "
+background: aliceblue; 
+color: palevioletred"
+>Привіт, дай будь ласка відповідь на моє запитання! Скільки тобі років?</p>
+
+<form>
+    <div></div>
+      <input type="text" value="0" id="input-number">
+    </div>
+</form>
+
+
+<button onclick="Надіслати()">Get Value</button>
+
+
+<script>
+    function Надіслати() {
+        let age = document.getElementById("input-number").value;
+        
+        alert('value:' + age)
+    }
+</script>
+
+<table>
+    <thead>
+    <tr>
+        <th>Записати 1 </th>
+        <th>Записати 2</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Відповідь 1 </td>
+        <td>Відповідь 2</td>
+    </tr>
+    </tbody>
+    
+</table>
+
+    
+</body>
+</html>
