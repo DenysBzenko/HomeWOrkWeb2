@@ -1,58 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="ZMI.html">Якщо хочете почитати про 10.09.2023</a></li>
-          <li><a href="element.html">Only text</a></li>
-        </ul>
-     </nav>
-
-<p style = "
-background: aliceblue; 
-color: palevioletred"
->Привіт, дай будь ласка відповідь на моє запитання! Скільки тобі років?</p>
-
-<form>
-    <div></div>
-      <input type="text" value="0" id="input-number">
-    </div>
-</form>
-
-
-<button onclick="Надіслати()">Get Value</button>
-
-
-<script>
-    function Надіслати() {
-        let age = document.getElementById("input-number").value;
-        
-        alert('value:' + age)
-    }
-</script>
-
-<table>
-    <thead>
-    <tr>
-        <th>Записати 1 </th>
-        <th>Записати 2</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr>
-        <td>Відповідь 1 </td>
-        <td>Відповідь 2</td>
-    </tr>
-    </tbody>
     
-</table>
+    <h1>Форма запитань</h1>
 
-    
+    <form id="questionForm">
+        <label for="questionText">Скільки вам років?:</label>
+        <input type="text" id="questionText" required>
+
+        <label for="imageUpload">Завантажити зображення:</label>
+        <input type="file" id="imageUpload">
+
+        <label for="switch">Ви навчаєтесь в школі?:</label>
+        <input type="checkbox" id="switch">
+
+        <label for="flag">Ви навчаєтесь в університеті?:</label>
+        <input type="checkbox" id="flag">
+
+        <button type="submit">Відправити форму</button>
+    </form>
+
+    <h2>Таблиця відповідей</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Запитання</th>
+                <th>Зображення</th>
+                <th>школяр</th>
+                <th>студент</th>
+            </tr>
+        </thead>
+        <tbody id="answersTable">
+
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("questionForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let question = document.getElementById("questionText").value;
+            let image = document.getElementById("imageUpload").files[0] ? "Так" : "Ні";
+            let switchValue = document.getElementById("switch").checked ? "Так" : "Ні";
+            let flagValue = document.getElementById("flag").checked ? "Так" : "Ні";
+
+            let newRow = `<tr>
+                <td>${question}</td>
+                <td>${image}</td>
+                <td>${switchValue}</td>
+                <td>${flagValue}</td>
+            </tr>`;
+
+            document.getElementById("answersTable").innerHTML += newRow;
+        });
+    </script>
+
+<nav>
+    <ul>
+      <li><a href="ZMI.html">Новини про 10.09.2023</a></li>
+      <li><a href="element.html">Види текстових елементів</a></li>
+      
+    </ul>
+ </nav>  
 </body>
+
 </html>
